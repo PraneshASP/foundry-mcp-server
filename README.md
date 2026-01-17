@@ -119,7 +119,7 @@ npx @pranesh.asp/foundry-mcp-server
 **Claude Code**
 
 ```bash
- claude mcp add-json foundry-mcp-server '{"type":"stdio","command":"npx","args":["@pranesh.asp/foundry-mcp-server"],"env":{"RPC_URL": "", ""PRIVATE_KEY":""}}'   
+ claude mcp add-json foundry-mcp-server '{"type":"stdio","command":"npx","args":["@pranesh.asp/foundry-mcp-server"],"env":{"RPC_URL":"","PRIVATE_KEY":""}}'   
 ```
 
 **Other MCP Clients (Cursor, Claude, Windsurf)**
@@ -150,8 +150,11 @@ The server supports the following environment variables:
 - `PRIVATE_KEY`: Private key to use for transactions (optional)
 
 > [!CAUTION]
-> Do not add keys with mainnet funds. Even though the code uses it safely, LLMs can hallicunate and send malicious transactions. 
+> Do not add keys with mainnet funds. Even though the code uses it safely, LLMs can hallicunate and send malicious transactions.
 > Use it only for testing/development purposes. DO NOT trust the LLM!!
+
+> [!TIP]
+> Getting `Invalid configuration` errors? Check your JSON syntax—common issues include double quotes (`""KEY"` → `"KEY"`), trailing commas, or unquoted keys. Validate with `echo '...' | jq .`
 
 ### Workspace
 
